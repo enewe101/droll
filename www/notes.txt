@@ -1,0 +1,118 @@
+How to handle getting posts? -- DONE
+	Let drafts be stored in the posts table, with a column to flag as draft.
+	any function (php) that is able to get drafts should do an authorization 
+	check.  any function (js) that tries to get drafts should be prepared to
+	receive an access denied reply.
+
+	Before sending the page, determine what post_id will be displayed.  js will
+	issue a separate request  for the post content after the page loads.  The
+	fact that js requests the post content and takes care of inserting it, it
+	will make it easier to also cause custom things to happen for different
+	posts in a controlled way, using js 'directives' which cause safe actions
+	to happen.
+
+	The reason for determining the post_id right away is because it's needed
+	elsewhere on the page (e.g. for making the link to edit the post) and the
+	script for displaying the post shouldn't be the one to take care of that.
+
+Handling adding / editing posts -- DONE
+	The page should check for authorization and offer login if necessary.
+	It is still important that any php functions that access the drafts,
+	write drafts, or write posts check for authorization themselves, in case
+	the functions were accessed by some unexpected means.
+
+	Since the add and edit functions are so similar, they might be handled 
+	with a single page.  Right now, the plan is to check if post_id is set
+	(in $_GET or $_POST) and trigger an edit if so.
+
+	But how to handle drafts, and their relationship to posts?
+	Maybe have a drafts table.  When an editing session is initiated, a new
+	entry in the drafts table is made.  This will store the draft and allow
+	previewing.  The drafts table has an extra column for post_id, that links
+	to a post, in the case where the draft is the result of editing a 
+	pre-existing post.  This column is null if the draft is a new post.
+
+	It should be ok to have multiple drafts relating to a single post, which
+	would be initiated by clicking the 'edit' button next to that post 
+	on multiple occaisions.  When posted, the draft overwrites the post (if
+	it has a non-null post_id) or creates a new post.
+
+Previewing posts -- DONE
+	Need to make the preview page for posts.  This should have login 
+	requirements the same as adding posts.
+
+Cronology
+	At the moment, the timestamp records the last touch time.  But, for 
+	display purposes, we probably want the post-time.  It's likely that
+	there will be edits after post time, but this should not alter the post-
+	time.
+
+Allow browsing and deleting drafts
+
+Protect priviledged operations
+	Make sure that all functions performing priviledged operations check for
+	proper authentication. It's not enough to check only in calling pages.
+	It could be possible that the functions get exposed to unprotected pages
+	unexpectedly, so protection should be within the function itself.  Pages
+	should still check for authorization first, but the purpose here is not for
+	actual protection, but to avoid permitting actions that will simply throw
+	authentication errors.
+
+Escaping -- DONE
+	Escaping special characters hasn't been done anywhere, so I need a global
+	solution for this.
+
+	The posts should be stored in the database literally.  That means that 
+	appostrophies should be represented by appostrophy characters, new lines
+	by actual newlines, etc.
+
+	when sending this in json object, it should be escaped in such a way that
+	it can be interpreded by eval() back into its literal form.
+
+	when sending this from the client page to the php parser as a POST, I think
+	that any escaping is handled trasparently by the browser and php parser.
+
+	but for insertion in the db, use the php mysqli_real_escape() function.
+
+Database for blog posts -- DONE
+	
+	Posts
+		post_id
+		timestamp
+		subject
+		summary
+		post_text
+
+	drafts
+		draft_id (medium int)
+		post_id (bigint)
+		timestamp
+		subject (256)
+		summary (512)
+		post_text
+		
+Build an authentication system -- DONE
+
+	table of users
+		user_id
+		pwd_hash
+		email
+		display_name
+		groups
+
+	table of user_groups
+		user_id
+		group_id
+
+	table of groups
+		group_id
+		group_name
+		
+	table of group_auths
+		group_id
+		auth_id
+
+	tabel of auths
+		auth_id
+		service_name
+

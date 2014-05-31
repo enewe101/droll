@@ -1,0 +1,10 @@
+[01-Jan-2014 20:21:23] PHP Warning:  include(../../common/php/db.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/uedwardn/public_html/droll/php/get_post.php on line 2
+[01-Jan-2014 20:21:23] PHP Warning:  include(../../common/php/db.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/uedwardn/public_html/droll/php/get_post.php on line 2
+[01-Jan-2014 20:21:23] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '../../common/php/db.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php:..') in /home/uedwardn/public_html/droll/php/get_post.php on line 2
+[01-Jan-2014 20:33:08] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/uedwardn/public_html/droll/php/get_post.php on line 7
+[01-Jan-2014 20:36:04] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/uedwardn/public_html/common/php/db.php on line 28
+[01-Jan-2014 20:38:28] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, boolean given in /home/uedwardn/public_html/droll/php/get_post.php on line 9
+[01-Jan-2014 20:38:28] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/uedwardn/public_html/common/php/db.php on line 28
+[01-Jan-2014 20:38:55] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/uedwardn/public_html/droll/php/get_post.php on line 9
+[01-Jan-2014 20:38:55] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/uedwardn/public_html/common/php/db.php on line 28
+[01-Jan-2014 20:42:04] PHP Fatal error:  Call to undefined function js_escape() in /home/uedwardn/public_html/common/php/db.php on line 34

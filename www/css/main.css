@@ -1,0 +1,152 @@
+body{
+	color: rgb(80,80,80);
+	padding: 0;
+	margin: 0;
+}
+
+#body_in {
+	position: relative;
+	width: 1000px;
+	padding: 0;
+	margin: 0;
+}
+
+#notification_wrapper {
+	position: absolute;
+	width: 100%;
+}
+
+#notification_target {
+	background: rgb(40,50,175);
+	color: white;
+	font-weight: bold;
+}
+
+#logo {
+	height: 29px;
+	width: 56px;
+	float: left;
+	background: url('../images/logo_small.png');
+}
+
+#page_container {
+	padding: 20px 5px 20px 40px;
+}
+
+#page {
+	margin: 0;
+	padding: 10px;
+	width: 600px;
+	border: 1px solid rgb(240,240,240);
+}
+
+#recent_post_listing {
+	margin: 20px 40px 20px 5px;
+	padding: 10px;
+	width: 250px;
+	border: 1px solid rgb(240,240,240);
+}
+
+.post {
+	font-size: 20px;
+	color: rgb(80,80,80);
+}
+
+.post_date {
+	float: left;
+	width: 80px;
+	color: rgb(140,140,140);
+}
+
+.post_subject {
+	float: left;
+	width: 170px;
+	color: rgb(80,80,80);
+}
+
+h1 {
+	margin: 0 0 -4px 0;
+	padding: 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: rgb(140,140,140);
+}
+
+
+h2 {
+	font-size: 16px;
+	padding: 0;
+	margin: 0 0 -4px 0;
+	color: rgb(80,80,80);
+}
+
+#post_dashboard {
+	margin: 0 0 4px 0;
+}
+
+.dash_button {
+	display: block;
+	height: 16px;
+	width: 16px;
+	float: right;
+	margin-left: 4px;
+	border: 1px solid rgb(240,240,240);
+}
+
+.summary {
+	padding: 10px 20px;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: rgb(160,160,160);
+	font-style: italic;
+}
+
+.label_medium{
+	display: block;
+	float: left;
+	width: 80px;
+}
+
+.input_long {
+	width: 598px;
+}
+
+.summary_textarea {
+	height: 120px;
+}
+
+.post_textarea {
+	height: 400px;
+}
+
+textarea, input {
+	border-top: rgb(200,200,200) 1px solid;
+	border-left: rgb(200,200,200) 1px solid;
+	border-right: rgb(230,230,230) 1px solid;
+	border-bottom: rgb(230,230,230) 1px solid;
+}
+
+button {
+	border-top: rgb(230,230,230) 1px solid;
+	border-left: rgb(230,230,230) 1px solid;
+	border-bottom: rgb(140,140,140) 1px solid;
+	border-right: rgb(140,140,140) 1px solid;
+}
+
+#logging {
+	float:right;
+}
+
+.cancel_x {
+	float: right;
+	cursor: pointer;
+}
+
+#login_form_container_top_right {
+	display: none;
+	position: absolute;
+	right: 0px;
+	padding: 10px;
+	background: white;
+	border: 1px solid rgb(240,240,240);
+}
